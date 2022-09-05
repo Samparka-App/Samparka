@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:samparka/main.dart';
 
+import '../styles/textStyles.dart';
+
 class MyAppBar extends StatelessWidget with PreferredSizeWidget{
 
   late IconData ico;
@@ -14,7 +16,9 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-          "Samparka"
+          "Samparka",
+        style: Font.heading,
+        textScaleFactor: 1.175,
       ),
       actions: [
         IconButton(onPressed: () {

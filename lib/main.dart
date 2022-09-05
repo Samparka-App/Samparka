@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:samparka/widgets/appbar.dart';
+import 'package:samparka/pages/home.dart';
 
 void main() {
   runApp(MyApp(
@@ -24,14 +24,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      home: Scaffold(
-        appBar: MyAppBar(ico),
-        drawer: Drawer(),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text("ALskla"), Text("AJKhdkasjl")],
-        ),
-      ),
+      home: HomePage(),
     );
   }
 
