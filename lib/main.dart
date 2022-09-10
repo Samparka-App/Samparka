@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:samparka/pages/home.dart';
+import 'package:samparka/pages/introPage.dart';
 
 void main() {
   runApp(MyApp(
@@ -24,7 +25,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      home: HomePage(),
+      initialRoute: "/",
+      routes: {
+        "/":(context)=>IntroPage(),
+        "/home":(context)=>HomePage()
+      },
     );
   }
 
