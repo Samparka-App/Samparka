@@ -6,9 +6,9 @@ import '../styles/textStyles.dart';
 
 class MyAppBar extends StatelessWidget with PreferredSizeWidget{
   late String head;
-  late IconData ico;
 
-  MyAppBar(this.ico, this.head,{Key? key}) : super(key: key);
+
+  MyAppBar(this.head,{Key? key}) : super(key: key);
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
@@ -24,7 +24,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget{
         IconButton(onPressed: () {
           themeGlobalKey.currentState?.changeTheme();
         }
-            , icon: Icon(ico))
+            , icon: Icon(themeGlobalKey.currentState?.ico))
       ],
     );
   }

@@ -40,3 +40,14 @@ class MyDrawer extends StatelessWidget {
     );
   }
 }
+
+
+class DrawerOptions extends StatelessWidget{
+  late bool highlight;
+  DrawerOptions(this.highlight);
+
+  @override
+  Widget build(BuildContext context){
+    return Card();
+  }
+}
