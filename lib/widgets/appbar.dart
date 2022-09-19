@@ -1,30 +1,20 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:samparka/main.dart';
 
-import '../styles/textStyles.dart';
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
+  String heading;
 
-class MyAppBar extends StatelessWidget with PreferredSizeWidget{
-  late String head;
-
-
-  MyAppBar(this.head,{Key? key}) : super(key: key);
+  MyAppBar(this.heading, {Key? key}) : super(key: key);
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(55);
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return AppBar(
-      title: Text(
-          head,
-        style: Font.appBarHeading,
-        textScaleFactor: 1.175,
-      ),
+      title: Text(heading),
       actions: [
-        IconButton(onPressed: () {
-          themeGlobalKey.currentState?.changeTheme();
-        }
-            , icon: Icon(themeGlobalKey.currentState?.ico))
+        IconButton(onPressed: (){}, icon: const Icon(Icons.ac_unit))
       ],
     );
   }

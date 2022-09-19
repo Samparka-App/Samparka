@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:samparka/pages/home.dart';
+import 'package:samparka/layout.dart';
+import 'package:samparka/pages/homePage.dart';
 import 'package:samparka/pages/introPage.dart';
 
 void main() {
-  runApp(MyApp(
-    key: themeGlobalKey,
-  ));
+  runApp(const MyApp());
 }
 
 final themeGlobalKey = GlobalKey<_MyAppState>();
@@ -18,30 +16,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  ThemeData theme = ThemeData.dark();
-  IconData ico = CupertinoIcons.moon_circle_fill;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: theme,
-      initialRoute: "/",
-      routes: {
-        "/":(context)=>IntroPage(),
-        "/home":(context)=>HomePage()
-      },
+      theme: ThemeData.dark(),
+        initialRoute: "/intro",
+        routes: {
+          "/home": (context) => LayoutPage(HomePage(), "Home"),
+          "/intro":(context)=>LayoutPage(const IntroPage(), "Intro"),
+        },
     );
-  }
-
-  void changeTheme() {
-    setState(() {
-      if (themeGlobalKey.currentState!.theme == ThemeData.dark()) {
-        themeGlobalKey.currentState!.theme = ThemeData.light();
-        ico = CupertinoIcons.sun_max_fill;
-      } else {
-        themeGlobalKey.currentState!.theme = ThemeData.dark();
-        ico = CupertinoIcons.moon_circle_fill;
-      }
-    });
   }
 }

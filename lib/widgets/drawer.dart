@@ -1,53 +1,37 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:samparka/main.dart';
 
-import '../styles/textStyles.dart';
-
-class MyDrawer extends StatelessWidget {
-  ThemeData theme = themeGlobalKey.currentState!.theme;
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          SizedBox(
-              height: MediaQuery.of(context).size.height / 5,
-              child: DrawerHeader(
-                padding: EdgeInsets.only(top: 8),
-                  decoration: BoxDecoration(
-                    color: theme==ThemeData.dark()?Colors.black:ThemeData.light().primaryColor
-                  ),
-                  child: Column(
-                    children: [
-                      Icon(
-                          CupertinoIcons.book_solid,
-                        size: MediaQuery.of(context).size.height / 13,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Samparka",
-                        style: Font.drawerHeading,
-                        textScaleFactor: 2,
-                        textAlign: TextAlign.center,
-                      ),
-
-                    ],
-                  )))
-        ],
-      ),
-    );
-  }
-}
-
-
-class DrawerOptions extends StatelessWidget{
-  late bool highlight;
-  DrawerOptions(this.highlight);
-
+class MyDrawer extends StatelessWidget{
   @override
   Widget build(BuildContext context){
-    return Card();
+    return Drawer(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const DrawerHeader(child: Text("humanoid")),
+              _drawerOptions("Clubs",Icons.co2_outlined)
+            ],
+        ),
+    );
+  }
+
+  Widget _drawerOptions(String option, IconData ico){
+    return  ElevatedButton(
+        onPressed: (){},
+        style: ElevatedButton.styleFrom(
+          primary: Colors.transparent,
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+          elevation: 0
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(option,textScaleFactor: 2,),
+              Icon(ico,size: 60,)
+            ],
+          ),
+        ),
+      );
   }
 }
