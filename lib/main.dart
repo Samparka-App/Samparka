@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:samparka/layout.dart';
 import 'package:samparka/pages/homePage.dart';
 import 'package:samparka/pages/introPage.dart';
+import 'package:provider/provider.dart';
+import 'package:samparka/provider/themeProvider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_)=>ThemeChanging())
+      ],
+      child: MyApp()
+  )
+  );
 }
 
 final themeGlobalKey = GlobalKey<_MyAppState>();
