@@ -1,15 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ThemeChanging with ChangeNotifier{
-  ThemeData _light = ThemeData.light();
-  ThemeData _dark = ThemeData.dark();
-  IconData _lightIco = CupertinoIcons.sun_max;
-  IconData _darkIco = CupertinoIcons.moon;
+class ThemeChanging with ChangeNotifier {
+  final List<dynamic> _light = [ThemeData.light(), CupertinoIcons.sun_max];
+  final List<dynamic> _dark = [ThemeData.dark(), CupertinoIcons.moon];
+  late List<dynamic> _curTheme = _light;
 
-  IconData get lightIco=>_lightIco;
-  IconData get darkIco=>_darkIco;
-  ThemeData get light => _light;
-  ThemeData get dark => _dark;
+  void changeTheme() {
+    if (_curTheme == _light) {
+      _curTheme = _dark;
+    } else {
+      _curTheme = _light;
+    }
+    notifyListeners();
+  }
 
+  List get theme => _curTheme;
 }

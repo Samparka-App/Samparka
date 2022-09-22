@@ -25,11 +25,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
+      theme: context.watch<ThemeChanging>().theme[0],
         initialRoute: "/intro",
         routes: {
           "/home": (context) => LayoutPage(HomePage(), "Home"),
