@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:samparka/layout.dart';
+import 'package:samparka/pages/eventsRegister.dart';
 import 'package:samparka/pages/homePage.dart';
 import 'package:samparka/pages/introPage.dart';
 import 'package:provider/provider.dart';
@@ -30,10 +31,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: context.watch<ThemeChanging>().theme[0],
-        initialRoute:(Status().stat=="none")?"/intro":"/home",
-        routes: {
+        // initialRoute:(Status().stat=="none")?"/intro":"/home",
+      initialRoute: "/intro",
+      routes: {
           "/home": (context) => LayoutPage(HomePage(), "Home"),
           "/intro":(context)=>LayoutPage(const IntroPage(), "Intro"),
+          "/register":(context)=>LayoutPage(EventsRegister(),"Event")
         },
     );
   }

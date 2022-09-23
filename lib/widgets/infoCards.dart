@@ -41,8 +41,11 @@ class _InfoCardsState extends State<InfoCards> {
       physics: InfiniteScrollPhysics(),
       itemBuilder: (context, itemIndex, realIndex) {
         return GestureDetector(
-          onTap: () {
+          onDoubleTap: () {
             _controller.animateToItem(realIndex);
+          },
+          onLongPress: (){
+            Navigator.pushNamed(context, "/register");
           },
           child: Container(
             width: 100,
