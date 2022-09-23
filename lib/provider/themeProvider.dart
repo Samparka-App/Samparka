@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class ThemeChanging with ChangeNotifier {
   final List<dynamic> _light = [ThemeData.light(), CupertinoIcons.sun_max];
   final List<dynamic> _dark = [ThemeData.dark(), CupertinoIcons.moon];
-  late List<dynamic> _curTheme = _light;
+  late List<dynamic> _curTheme = _dark;
 
   void changeTheme() {
     if (_curTheme == _light) {

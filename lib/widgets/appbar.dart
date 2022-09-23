@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:samparka/main.dart';
 import 'package:samparka/provider/themeProvider.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {

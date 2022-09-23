@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:samparka/user_info/user.dart';
 
 class IntroPage extends StatelessWidget{
   const IntroPage({Key? key}) : super(key: key);
@@ -42,6 +43,7 @@ class IntroPage extends StatelessWidget{
       child: ElevatedButton(
         style: const ButtonStyle(),
           onPressed: (){
+          Status().status(str);
           Navigator.pushNamed(context, "/home");
           },
           child: Column(

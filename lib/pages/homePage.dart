@@ -1,91 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_carousel/infinite_carousel.dart';
+
+import '../widgets/infoCards.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          _buildHeading("Title", context),
-          SizedBox(
-            height: 30,
-          ),
-          SizedBox(height:MediaQuery.of(context).size.height/3.5,child: InfoTiles())
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 30.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            _buildHeading("Clubs", context),
+            _paddingBox(30),
+            _wrapInfoCards(context),
+            _paddingBox(60),
+            _buildHeading("TimeTable", context),
+            _paddingBox(30),
+            _wrapInfoCards(context),
+            _paddingBox(60),
+            _buildHeading("Alumini", context),
+            _paddingBox(30),
+            _wrapInfoCards(context),
+            _paddingBox(60)
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildHeading(String title, BuildContext context) {
     return Container(
-      child: Text(title, textScaleFactor: 2),
-      width: MediaQuery.of(context).size.width / 1.5,
+      width: MediaQuery.of(context).size.width,
+      margin: const EdgeInsets.only(right: 120.0),
       decoration: const BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.only(
-              topRight: Radius.circular(45.0),
-              bottomRight: Radius.circular(45.0))),
+              topRight: Radius.circular(30.0),
+              bottomRight: Radius.circular(30.0)
+          )
+      ),
       padding: const EdgeInsets.only(left: 30, top: 15, bottom: 15),
+      child: Text(title, textScaleFactor: 2),
     );
   }
-}
 
-class InfoTiles extends StatefulWidget {
-  @override
-  State<InfoTiles> createState() => _InfoTilesState();
-}
-
-class _InfoTilesState extends State<InfoTiles> {
-  List<String> json = ["Asad", "awdawdeas", "WDUIUGDW", "UDWHUIaw"];
-  late InfiniteScrollController _controller;
-  int _selectedIndex = 0;
-  @override
-  void initState() {
-    super.initState();
-    _controller = InfiniteScrollController();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return InfiniteCarousel.builder(
-      itemExtent: 100,
-      center: false,
-      onIndexChanged: (index) {
-        if (_selectedIndex != index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        }
-      },
-      controller: _controller,
-      axisDirection: Axis.horizontal,
-      loop: true,
-      physics: InfiniteScrollPhysics(),
-      itemBuilder: (context, itemIndex, realIndex) {
-        return GestureDetector(
-            onTap: () {
-              _controller.animateToItem(realIndex);
-            },
-            child: Container(
-              width:50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                ),
-              child:Card(child: Text(json[itemIndex],style: TextStyle(color: Colors.black),),color:Colors.white
-              ),
-            ),
-        );
-      },
-      itemCount: json.length,
+  Widget _wrapInfoCards(BuildContext context){
+    return SizedBox(
+        height: MediaQuery.of(context).size.height / 3.5,
+        child: InfoCards()
     );
   }
+
+  Widget _paddingBox(double height){
+    return SizedBox(height: height);
+  }
+
 }

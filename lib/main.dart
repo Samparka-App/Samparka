@@ -4,6 +4,7 @@ import 'package:samparka/pages/homePage.dart';
 import 'package:samparka/pages/introPage.dart';
 import 'package:provider/provider.dart';
 import 'package:samparka/provider/themeProvider.dart';
+import 'package:samparka/user_info/user.dart';
 
 void main() {
   runApp(
@@ -29,7 +30,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: context.watch<ThemeChanging>().theme[0],
-        initialRoute: "/intro",
+        initialRoute:(Status().stat=="none")?"/intro":"/home",
         routes: {
           "/home": (context) => LayoutPage(HomePage(), "Home"),
           "/intro":(context)=>LayoutPage(const IntroPage(), "Intro"),
