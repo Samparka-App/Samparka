@@ -4,6 +4,7 @@ import 'package:samparka/pages/eventsRegister.dart';
 import 'package:samparka/pages/homePage.dart';
 import 'package:samparka/pages/introPage.dart';
 import 'package:provider/provider.dart';
+import 'package:samparka/pages/sampada.dart';
 import 'package:samparka/provider/themeProvider.dart';
 import 'package:samparka/user_info/user.dart';
 
@@ -32,11 +33,12 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: context.watch<ThemeChanging>().theme[0],
         // initialRoute:(Status().stat=="none")?"/intro":"/home",
-      initialRoute: "/intro",
+      initialRoute: "/sampada",
       routes: {
           "/home": (context) => LayoutPage(HomePage(), "Home"),
           "/intro":(context)=>LayoutPage(const IntroPage(), "Intro"),
-          "/register":(context)=>LayoutPage(EventsRegister(),"Event")
+          "/register":(context)=>LayoutPage(EventsRegister(),"Event"),
+        "/sampada":(context)=>LayoutPage(SampadaPage(), "Sampada"),
         },
     );
   }
