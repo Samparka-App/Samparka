@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 import 'package:samparka/user_info/userModel.dart';
 
@@ -8,7 +7,7 @@ class UrlConstants{
   static String posts = "/posts";
 }
 
-Future<dynamic> fetchData() async {
+Future<News> fetchData() async {
   final response = await http.get(Uri.parse(UrlConstants.baseUrl+UrlConstants.posts));
 
   if (response.statusCode == 200){

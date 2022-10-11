@@ -10,7 +10,7 @@ class News {
     if (json['posts'] != null) {
       posts = <Posts>[];
       json['posts'].forEach((v) {
-        posts!.add(new Posts.fromJson(v));
+        posts!.add(Posts.fromJson(v));
       });
     }
     total = json['total'];
@@ -19,13 +19,13 @@ class News {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.posts != null) {
-      data['posts'] = this.posts!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (posts != null) {
+      data['posts'] = posts!.map((v) => v.toJson()).toList();
     }
-    data['total'] = this.total;
-    data['skip'] = this.skip;
-    data['limit'] = this.limit;
+    data['total'] = total;
+    data['skip'] = skip;
+    data['limit'] = limit;
     return data;
   }
 }
@@ -51,13 +51,13 @@ class Posts {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['body'] = this.body;
-    data['userId'] = this.userId;
-    data['tags'] = this.tags;
-    data['reactions'] = this.reactions;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['body'] = body;
+    data['userId'] = userId;
+    data['tags'] = tags;
+    data['reactions'] = reactions;
     return data;
   }
 }

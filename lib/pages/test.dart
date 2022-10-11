@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:samparka/user_info/newsInfo.dart';
 import 'package:samparka/widgets/appBar.dart';
 import 'package:samparka/widgets/drawer.dart';
+
+import '../user_info/userModel.dart';
 
 class TestPage extends StatelessWidget{
   @override
@@ -10,13 +13,15 @@ class TestPage extends StatelessWidget{
       drawer: MyDrawer(),
       body: Center(
         child: FutureBuilder(
-          future: getData(),
+          future: fetchData(),
           builder: (ctx,snapshot){
             if(snapshot.connectionState==ConnectionState.done){
               if(snapshot.hasError){
                 return Text("Error ${snapshot.error}",textScaleFactor: 2);
               }else if(snapshot.hasData){
-                return Text(snapshot.data as String,textScaleFactor: 1.75);
+                final news = snapshot.data as News;
+                print(news.total);
+                return createCol(news);
               }
             }
             return CircularProgressIndicator();
@@ -27,9 +32,39 @@ class TestPage extends StatelessWidget{
   }
 }
 
-Future<String> getData() {
-  return Future.delayed(Duration(seconds: 2), () {
-    return "I am data";
-    // throw Exception("Custom Error");
-  });
+Column createCol(News list){
+  dynamic post = list.posts;
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      createRow(post[0]),
+    ],
+  );
+}
+
+Row createRow(dynamic itm){
+  List<dynamic> lst = [itm.id,itm.title,itm.userId,itm.reactions];
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      createCard(lst)
+    ],
+  );
+}
+
+Card createCard(List<dynamic> lst){
+  return Card(
+    child: SizedBox(
+      width: 350,
+      height: 150,
+      child: ListTile(
+        title: Text(lst[1]),
+        leading: Text(lst[0].toString()),
+        subtitle: Text(lst[2].toString()),
+        trailing: Text(lst[3].toString()),
+      ),
+    ),
+  );
 }
