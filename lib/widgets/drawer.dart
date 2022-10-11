@@ -8,7 +8,25 @@ class MyDrawer extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const DrawerHeader(child: Text("humanoid")),
-              _drawerOptions("Clubs",Icons.co2_outlined)
+              _drawerOptions("Clubs",Icons.co2_outlined),
+              ElevatedButton(
+                onPressed: (){Navigator.pushNamed(context, "/test");},
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.transparent,
+                    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                    elevation: 0
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Test Page",textScaleFactor: 2,),
+                      Icon(Icons.accessible_forward_sharp,size: 60,)
+                    ],
+                  ),
+                ),
+              )
             ],
         ),
     );

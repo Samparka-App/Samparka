@@ -9,10 +9,18 @@ class _SampadaPageState extends State<SampadaPage> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: EdgeInsets.only(top:20.0),
       child: Column(
         children: [
           SampadaRow(),
-          SampadaRow()
+          SizedBox(height: 20,),
+          SampadaRow(),
+          SizedBox(height: 20,),
+          SampadaRow(),
+          SizedBox(height: 20,),
+          SampadaRow(),
+          SizedBox(height: 20,),
+          SampadaRow(),
             ],
           ),
       );
@@ -44,11 +52,17 @@ class SampadaCards extends StatefulWidget{
 class _SampadaCardsState extends State<SampadaCards> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Color.fromRGBO(0, 0, 0, 0.1),
-      padding: EdgeInsets.all(15),
-      margin: EdgeInsets.only(top: 20,bottom: 20),
-      child:Text("Sampada-1",),
+    return ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor:MaterialStateProperty.all(Colors.orange)
+      ),
+      onPressed: (){},
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 12.0),
+        child: const Text(
+          "Sampada"
+        ),
+      ),
     );
   }
 }

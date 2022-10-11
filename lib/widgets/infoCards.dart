@@ -56,16 +56,18 @@ class _InfoCardsState extends State<InfoCards> {
                 color: const Color.fromRGBO(255, 255, 255, 0.5),
                 child: TextButton(
                   onPressed: () {},
-                  child: Stack(children: [
-                    Image.asset("images/uvce.png"),
-                    Text(
-                      json[itemIndex],
-                      textAlign: TextAlign.center,
-                      textScaleFactor: 1.5,
-                      style: const TextStyle(color: Colors.black),
+                  child: Container(
+                    child: Text(
+                      "Asaewasdaswd"
                     ),
-                  ]
-                  ),
+                    width: 100,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('images/uvce.png',),
+                            colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.8), BlendMode.modulate,)
+                        )
+                    ),
+                  )
                 )
             ),
           ),
