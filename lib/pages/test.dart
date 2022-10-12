@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:samparka/user_info/newsInfo.dart';
+import 'package:samparka/jsonFiles/newsInfo.dart';
 import 'package:samparka/widgets/appBar.dart';
 import 'package:samparka/widgets/drawer.dart';
 
-import '../user_info/userModel.dart';
+import '../jsonFiles/userModel.dart';
 
 class TestPage extends StatelessWidget{
   @override

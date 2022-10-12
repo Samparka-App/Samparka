@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:samparka/persistence/userInfo.dart';
 
 class ThemeChanging with ChangeNotifier {
   final List<dynamic> _light = [ThemeData.light(), CupertinoIcons.sun_max];
@@ -10,8 +11,10 @@ class ThemeChanging with ChangeNotifier {
   void changeTheme() {
     if (_curTheme == _light) {
       _curTheme = _dark;
+      setThemeStatus(0);
     } else {
       _curTheme = _light;
+      setThemeStatus(1);
     }
     notifyListeners();
   }

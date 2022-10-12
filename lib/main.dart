@@ -28,12 +28,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  late int status, theme;
+
+  @override
+  void initState(){
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: context.watch<ThemeChanging>().theme[0],
+      // theme as bool?context.watch<ThemeChanging>().theme[1]:context.watch<ThemeChanging>().theme[0],
         // initialRoute:(Status().stat=="none")?"/intro":"/home",
-      initialRoute: "/home",
+      initialRoute: "/intro",
+    // status as bool?"/home":"/intro",
       routes: {
           "/home": (context) => LayoutPage(HomePage(), "Home"),
           "/intro":(context)=>LayoutPage(const IntroPage(), "Intro"),

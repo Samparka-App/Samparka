@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:samparka/user_info/userModel.dart';
+import 'package:samparka/jsonFiles/userModel.dart';
 
 class UrlConstants{
   static String baseUrl= "https://dummyjson.com";
