@@ -14,11 +14,11 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(heading),
-      actions: [
-        IconButton(
-            onPressed: () {context.read<ThemeChanging>().changeTheme();},
-            icon: Icon(context.watch<ThemeChanging>().theme[1]))
-      ],
+      // actions: [
+      //   IconButton(
+      //       onPressed: () {context.read<ThemeChanging>().changeTheme();},
+      //       icon: Icon(context.watch<ThemeChanging>().theme[1]))
+      // ],
     );
   }
 }
