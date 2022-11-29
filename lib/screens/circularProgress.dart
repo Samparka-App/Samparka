@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:samparka/persistence/userInfo.dart';
-
 import '../jsonFiles/newsInfo.dart';
+import '../utils/userInfo.dart';
 
 class CircularIndicator extends StatelessWidget{
   @override

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:samparka/layout.dart';
-import 'package:samparka/pages/circularProgress.dart';
-import 'package:samparka/pages/test.dart';
-import 'package:samparka/pages/eventsRegister.dart';
-import 'package:samparka/pages/homePage.dart';
-import 'package:samparka/pages/introPage.dart';
 import 'package:provider/provider.dart';
-import 'package:samparka/pages/sampadaPage.dart';
+import 'package:samparka/layout.dart';
 import 'package:samparka/provider/themeProvider.dart';
+import 'package:samparka/screens/circularProgress.dart';
+import 'package:samparka/screens/eventsRegister.dart';
+import 'package:samparka/screens/homePage.dart';
+import 'package:samparka/screens/introPage.dart';
+import 'package:samparka/screens/sampadaPage.dart';
+import 'package:samparka/screens/test.dart';
 
 void main() {
   runApp(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:samparka/persistence/userInfo.dart';
+import '../utils/userInfo.dart';
 
 class IntroPage extends StatelessWidget{
   const IntroPage({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:samparka/persistence/userInfo.dart';
+import '../utils/userInfo.dart';
 
 class ThemeChanging with ChangeNotifier {
   final List<dynamic> _light = [ThemeData.light(), CupertinoIcons.sun_max];
