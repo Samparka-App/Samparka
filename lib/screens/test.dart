@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:samparka/jsonFiles/newsInfo.dart';
 import 'package:samparka/widgets/appBar.dart';
 import 'package:samparka/widgets/drawer.dart';
@@ -21,7 +22,7 @@ class TestPage extends StatelessWidget{
               }else if(snapshot.hasData){
                 final news = snapshot.data as News;
                 print(news.total);
-                return createCol(news);
+                return createCol(news,news.total);
               }
             }
             return CircularProgressIndicator();
@@ -32,16 +33,22 @@ class TestPage extends StatelessWidget{
   }
 }
 
-Column createCol(News list){
+ListView createCol(News list,int? total){
   dynamic post = list.posts;
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      createRow(post[0]),
-    ],
+  return ListView.builder(
+    itemCount: 150,
+    itemBuilder: (BuildContext ctx,int index)=>createRow(post[index]),
   );
 }
+
+// List<Widget> getRows(int total, dynamic post){
+//   int i;
+//   List<Widget> rows = [];
+//   for(i=0;i<total;i++){
+//     rows.add(createRow(post[i]));
+//   }
+//   return rows;
+// }
 
 Row createRow(dynamic itm){
   List<dynamic> lst = [itm.id,itm.title,itm.userId,itm.reactions];

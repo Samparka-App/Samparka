@@ -2,9 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:samparka/jsonFiles/userModel.dart';
 
+import '../models/models.dart';
+
 class UrlConstants{
   static String baseUrl= "https://dummyjson.com";
   static String posts = "/posts";
+  static String todos ="/todos";
 }
 
 Future<News> fetchData() async {
@@ -16,3 +19,8 @@ Future<News> fetchData() async {
     throw Exception("Error");
   }
 }
+
+// Future<Todo> fetchTodos()async{
+//   final response = await http.get(Uri.parse(UrlConstants.baseUrl+UrlConstants.todos));
+//
+// }
