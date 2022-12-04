@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class EventsRegister extends StatefulWidget {
+class Annoucements extends StatefulWidget{
   @override
-  State<EventsRegister> createState() => _EventsRegisterState();
+  State<Annoucements> createState() => _AnnoucementsState();
 }
 
-class _EventsRegisterState extends State<EventsRegister> {
+class _AnnoucementsState extends State<Annoucements> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -45,32 +45,6 @@ class _EventsRegisterState extends State<EventsRegister> {
               ],
             ),
           ),
-        ),
-        Row(
-          // mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-                child: Container(
-                  color: Colors.purple,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text("Register"),
-                  ),
-                ),
-              ),
-            SizedBox(width: 1,),
-            Expanded(
-                child: Container(
-                  color: Colors.purple,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text("Venue"),
-                  ),
-                ),
-              ),
-          ],
         ),
       ],
     );

@@ -15,6 +15,21 @@ class LayoutPage extends StatelessWidget {
         drawer: MyDrawer(),
         floatingActionButton: const MyFloatingButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        body: body);
+        body: body
+    );
+  }
+}
+
+void Navigate(String routeName, BuildContext context){
+  bool val = false;
+  Navigator.popUntil(context, (route) {
+    if(route.settings.name==routeName){
+      val = true;
+    }
+    return true;
+  }
+  );
+  if(!val){
+    Navigator.pushNamed(context, routeName);
   }
 }
