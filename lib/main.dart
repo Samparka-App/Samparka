@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       theme: context.watch<ThemeChanging>().theme[0],
       // theme as bool?context.watch<ThemeChanging>().theme[1]:context.watch<ThemeChanging>().theme[0],
         // initialRoute:(Status().stat=="none")?"/intro":"/home",
-      initialRoute: "/announcements",
+      initialRoute: "/intro",
     // status as bool?"/home":"/intro",
       routes: {
           "/home": (context) => LayoutPage(HomePage(), "Home"),
